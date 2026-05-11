@@ -8,6 +8,31 @@ A simple Flask application built on Ubuntu, containerized with Docker, and manag
 - `/health` endpoint
 - Dockerized for local testing
 - Built and managed from Ubuntu terminal
+- Prepared GitHub Actions workflow for Azure Container Apps deployment
+
+## GitHub Actions Deployment Workflow
+
+This repo includes a manual GitHub Actions workflow for deploying the Flask container image to Azure Container Apps.
+
+The workflow is designed to:
+
+1. Authenticate to Azure using OIDC
+2. Build the Docker image
+3. Push the image to Azure Container Registry
+4. Update the Azure Container App image
+
+The workflow is currently manual (`workflow_dispatch`) so deployments only occur intentionally.
+
+Required Azure resources before running the workflow:
+
+- Azure Container Registry
+- Azure Container App
+- Container Apps Environment
+- Resource group configured in repository variables
+
+## Deployment Notes
+
+The Azure deployment workflow is prepared for future use after the required Azure resources are recreated. This keeps the repo ready for CI/CD deployment while avoiding unnecessary cloud resource costs when the app is not actively being tested.
 
 ## Run Locally
 
